@@ -1,10 +1,13 @@
 #include <iostream>
 #include <math.h>
-using namespace std;
 
-int sum_of_squares(int n){
+int sum_of_squares(int n,int acc){
     if (n ==1){
-        return 1;
+        return acc;
     }
-    return (pow(n,2)+ sum_of_squares(n-1));
+    return sum_of_squares(n-1,acc + pow(n,2));
+}
+
+int helper(int n){
+    return sum_of_squares(n,1);
 }
